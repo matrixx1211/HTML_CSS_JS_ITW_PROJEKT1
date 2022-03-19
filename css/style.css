@@ -1,0 +1,605 @@
+/*
+ * Login: xbitom00
+ *
+ * Doplnte sve reseni.
+ *
+ * Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
+ * a pro netrivialni useky kodu (napr. bubliny v sekci #refs)
+ */
+
+/* Pro všechny tagy */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'PT Sans', sans-serif;
+}
+
+/* Pro všechny odkazy */
+a {
+	text-decoration: none;
+}
+
+/* Proměnné */
+:root {
+	--light-grey: #f7f7f7;
+	--lighter-grey: #bfbfbf;
+	--grey: #898989;
+	--dark-grey: #4d4d4d;
+	--black: #000000;
+	--white: #ffffff;
+	--steelblue: #4682b4;
+	--border-radius-size: 5px;
+	--shadow-size: 10px;
+	--p-size-bigger: 18px;
+	--p-size-smaller: 14px;
+	--h2-size-bigger: 40px;
+	--h2-size-smaller: 32px;
+	--anim-length: .5s;
+}
+
+/* Pro všechny nadpisy třetí úrovně */
+h3 {
+	font-size: 24px;
+}
+
+/* Pro všechny odstavce */
+p {
+	line-height: 1.7;
+}
+
+
+/***** Hlavička *****/
+#header {
+	min-height: 400px;
+	height: 100vh;
+	background-image: url(../img/header.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	padding-top: 10px;
+}
+
+#header-menu {
+	padding-top: 10px;
+	display: grid;
+	gap: 10px;
+}
+
+#logo {
+	font-size: 25px;
+	font-family: 'Special Elite', cursive;
+	grid-column: 1;
+}
+
+#logo span a {
+	text-decoration: none;
+	color: var(--steelblue);
+}
+
+#logo span i {
+	color: var(--steelblue);
+}
+
+#contacts {
+	grid-column: 2;
+	align-self: end;
+	margin-left: auto;
+}
+
+#contacts span i {
+	color: var(--steelblue);
+}
+
+#phone,
+#mail a {
+	color: var(--grey);
+}
+
+#phone i,
+#mail i {
+	margin-right: 5px;
+}
+
+#mail {
+	margin-left: 10px;
+}
+
+#networks {
+	grid-row: 2;
+	grid-column: 2;
+	margin-left: auto;
+}
+
+#networks span a i {
+	color: var(--steelblue);
+	font-size: large;
+}
+
+#navigation {
+	font-size: 13px;
+	letter-spacing: 0.05em;
+	padding: 15px 5px;
+}
+
+#navigation>ul>li {
+	display: inline;
+	margin: 0 10px;
+}
+
+#navigation ul li a {
+	color: var(--grey);
+	text-transform: uppercase;
+}
+
+#header-title {
+	position: absolute;
+	bottom: 25%;
+}
+
+#header-title>h1 {
+	/* H1 by nemělo být víckrát, ale pro jistotu */
+	font-size: 64px;
+	color: var(--white);
+	margin: 0 0 20px 20px;
+	/* Není úplně podle reference */
+}
+
+#get-started {
+	font-size: larger;
+	padding: 20px;
+	border: 2px solid var(--grey);
+	float: left;
+	border-radius: 15px;
+}
+
+#get-started a {
+	color: var(--grey);
+}
+
+/***** Konec hlavičky *****/
+
+/***** Hlavní obsah *****/
+.content {
+	padding: 0px 20px;
+}
+
+
+section {
+	margin: 60px 0px 80px 0px;
+}
+
+/***** Konec hlavní obsahu *****/
+
+
+/***** Služby *****/
+#services h2 {
+	text-align: center;
+	font-size: 48px;
+}
+
+#services .content>p {
+	color: var(--grey);
+	text-align: center;
+	font-size: var(--p-size-bigger);
+	margin-bottom: 40px;
+}
+
+#services .content>div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+}
+
+.services-column:nth-child(odd) {
+	margin-left: auto;
+}
+
+.services-card {
+	width: 300px;
+	display: grid;
+	justify-items: center;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: var(--border-radius-size);
+	padding: 15px;
+}
+
+.services-card>div img {
+	border: 1px solid var(--steelblue);
+	border-radius: var(--border-radius-size);
+	width: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.services-card>div img:last-child {
+	position: absolute;
+	transform: translateX(-50px);
+	z-index: -1;
+}
+
+.services-card h3 {
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+.services-card p {
+	text-align: center;
+	color: var(--lighter-grey);
+	font-size: var(--p-size-smaller);
+}
+
+/***** Konec služeb *****/
+
+/***** O nás *****/
+#about {
+	background-color: var(--light-grey);
+}
+
+.about-item {
+	display: inline-block;
+}
+
+.about-item img {
+	width: 40%;
+}
+
+.about-item img:hover {
+	width: 50%;
+}
+
+.about-item h2 {
+	margin: 40px 0;
+	font-size: var(--h2-size-bigger);
+}
+
+.about-item p {
+	color: var(--grey);
+	font-size: var(--p-size-bigger);
+}
+
+.about-item:nth-child(odd) img {
+	float: left;
+	margin: 40px 80px 40px 0;
+}
+
+.about-item:nth-child(even) img {
+	float: right;
+	margin: 40px 0 40px 80px;
+}
+
+/***** Konec o nás *****/
+
+/***** Tým *****/
+#team {
+	position: relative;
+}
+
+#team:after {
+	position: absolute;
+	width: 100%;
+	content: "";
+	border-bottom: 1px dotted var(--dark-grey);
+	transform: translateY(40px);
+	bottom: 0;
+}
+
+#team>.content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	column-gap: 20px;
+}
+
+#team>.content>h2 {
+	grid-row: 1;
+	grid-column-start: 1;
+	grid-column-end: 5;
+	text-align: center;
+	font-size: var(--h2-size-bigger);
+	text-transform: uppercase;
+	transform: translateY(-40px);
+}
+
+.team-card {
+	grid-row: 2;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px var(--shadow-size) var(--shadow-size) 0px;
+	border-radius: var(--border-radius-size);
+	text-align: center;
+}
+
+.team-card img {
+	width: 100%;
+	height: auto;
+}
+
+.team-card h3 {
+	margin: 1rem 0 0.8rem 0;
+}
+
+.team-card h4 {
+	color: var(--dark-grey);
+	margin-bottom: 0.5rem;
+}
+
+.team-card p {
+	color: var(--grey);
+	padding-bottom: 1rem;
+	font-size: var(--p-size-smaller);
+}
+
+/***** Konec týmu *****/
+
+/***** Statistiky *****/
+#stats>.content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	text-align: center;
+	justify-items: center;
+	column-gap: 20px;
+	padding-top: 20px;
+}
+
+.stats-card {
+	width: 100%;
+	max-width: 300px;
+	background-color: var(--dark-grey);
+	border-radius: var(--border-radius-size);
+}
+
+.stats-card i {
+	color: var(--steelblue);
+	padding: 10px;
+	background-color: var(--white);
+	border-radius: 50%;
+	font-size: 32px;
+	transform: translateY(-26px);
+}
+
+.stats-card h3 {
+	color: var(--white);
+	font-size: x-large;
+	transform: translateY(-13px);
+}
+
+.stats-card p {
+	color: var(--lighter-grey);
+	margin-bottom: 1rem;
+	font-size: var(--p-size-smaller);
+}
+
+/***** Konec statistik *****/
+
+/***** Ceny *****/
+#price {
+	background-color: var(--light-grey);
+}
+
+#price>.content {
+	width: 100%;
+}
+
+#price h2 {
+	text-align: center;
+	transform: translateY(55px);
+	font-size: var(--h2-size-bigger);
+}
+
+#price table {
+	width: 80%;
+	margin: 0 auto;
+	border-spacing: 0 80px;
+	border-collapse: separate;
+}
+
+#price table th {
+	text-align: left;
+	padding: 20px;
+}
+
+#price table td {
+	border-width: 1px 0;
+	border-color: var(--steelblue);
+	border-style: dotted;
+	color: var(--grey);
+	padding: 20px;
+}
+
+#price table thead {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	border-spacing: 0;
+}
+
+#price table tbody {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	border-spacing: 0 20px;
+}
+
+#price ul li:first-child {
+	list-style: none;
+	text-align: left;
+	font-weight: bold;
+	margin-left: 0;
+}
+
+#price ul li {
+	margin-left: 20px;
+}
+
+#price button {
+	border: 1px solid var(--steelblue);
+	font-weight: bold;
+	padding: 20px;
+	border-radius: var(--border-radius-size);
+	background-color: var(--light-grey);
+}
+
+/***** Konec cen *****/
+
+
+/***** Reference *****/
+#refs {
+	padding-bottom: 80px;
+	border-bottom: 1px dashed var(--dark-grey);
+}
+
+#refs .content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+}
+
+.refs-card {
+	width: 100%;
+	max-width: 400px;
+}
+
+.refs-card blockquote {
+	background-color: var(--dark-grey);
+	position: relative;
+	padding: 20px;
+	quotes: '\0022''\0022''\0022''\0022';
+	border-radius: var(--border-radius-size);
+	margin-bottom: 30px;
+}
+
+.refs-card blockquote span {
+	padding-left: 20px;
+	color: var(--light-grey);
+	display: block;
+}
+
+.refs-card blockquote::before {
+	position: absolute;
+	content: open-quote;
+	color: var(--steelblue);
+	font-size: 6em;
+	font-style: italic;
+	left: 0;
+	bottom: 10;
+	top: 0;
+}
+
+.refs-card blockquote::after {
+	position: absolute;
+	content: "";
+	width: 0;
+	height: 0;
+	border-right: 20px solid transparent;
+	border-top: 20px solid var(--dark-grey);
+	transform: translateY(20px);
+	z-index: -1;
+	left: 30px
+}
+
+.refs-card figure {
+	display: flex;
+	align-items: center;
+}
+
+.refs-card img {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+}
+
+.refs-card h3 {
+	color: var(--grey);
+	margin-left: 20px;
+}
+
+/***** Konec referencí *****/
+
+/***** Kontakty *****/
+#contact .content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 20px;
+}
+
+#contact h2 {
+	text-align: center;
+	font-size: var(--h2-size-bigger);
+	text-transform: uppercase;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	padding-bottom: 60px;
+}
+
+#map {
+	height: 400px;
+}
+
+#contact form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0fr 0fr 3fr 0fr;
+	gap: 20px;
+	height: 400px;
+	padding: 20px 0;
+}
+
+[id^='contact-'] {
+	padding: 10px;
+	border: 1px solid var(--steelblue);
+	border-radius: var(--border-radius-size);
+	color: var(--steelblue);
+}
+
+#contact-name {
+	grid-row: 1;
+	grid-column: 1;
+}
+
+#contact-email {
+	grid-row: 1;
+	grid-column: 2;
+}
+
+#contact-subject,
+#contact-message {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+#contact-submit {
+	background-color: var(--steelblue);
+	color: var(--white);
+	grid-column-start: 1;
+	grid-column-end: 3;
+	width: 50%;
+	justify-self: center;
+}
+
+/***** Konec kontaktů *****/
+
+/***** Rick Roll a Patička *****/
+#footer {
+	padding: 40px 0;
+	background-color: var(--black);
+}
+
+#footer span:first-child {
+	color: var(--dark-grey);
+}
+
+#footer span:last-child a {
+	color: var(--steelblue);
+	float: right;
+}
+
+/***** Konec Rick Rollu a patičky *****/
+
+
+/***** Responzivita *****/
+@media screen and (min-width: 1200px) {
+	.content {
+		width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+/***** Konec responzivity *****/
