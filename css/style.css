@@ -263,6 +263,11 @@ section {
 	z-index: -1;
 }
 
+.services-card:hover>div img:last-child {
+	z-index: 1;
+	background-color: #4682b4;
+}
+
 .services-card h3 {
 	margin-top: 20px;
 	font-weight: bold;
