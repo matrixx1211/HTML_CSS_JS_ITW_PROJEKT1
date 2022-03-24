@@ -15,6 +15,10 @@
 	font-family: 'PT Sans', sans-serif;
 }
 
+*::selection {
+	background-color: #42ff42;
+}
+
 /* Pro všechny odkazy */
 a {
 	text-decoration: none;
@@ -55,7 +59,7 @@ p {
 	height: 100vh;
 	background-image: url(../img/header.jpg);
 	background-repeat: no-repeat;
-	background-position: top center;
+	background-position: center;
 	background-size: cover;
 	padding-top: 10px;
 }
@@ -77,6 +81,10 @@ p {
 	color: var(--steelblue);
 }
 
+#logo span a:hover {
+	color: var(--light-grey);
+}
+
 #logo span i {
 	color: var(--steelblue);
 }
@@ -96,6 +104,10 @@ p {
 	color: var(--grey);
 }
 
+#mail a:hover {
+	color: var(--light-grey);
+}
+
 #phone i,
 #mail i {
 	margin-right: 5px;
@@ -108,28 +120,45 @@ p {
 #networks {
 	grid-row: 2;
 	grid-column: 2;
-	margin-left: auto;
+	justify-self: end;
+	align-self: center;
 }
 
 #networks span a i {
 	color: var(--steelblue);
-	font-size: large;
+	font-size: 25px;
+	margin-left: 5px;
+}
+
+#networks span a i:hover {
+	color: var(--light-grey);
 }
 
 #navigation {
 	font-size: 13px;
 	letter-spacing: 0.05em;
 	padding: 15px 5px;
+	/* nevím jak je myšleno horizontálně a vertikálně */
+
 }
 
 #navigation>ul>li {
 	display: inline;
-	margin: 0 10px;
+	padding: 10px;
 }
 
 #navigation ul li a {
 	color: var(--grey);
 	text-transform: uppercase;
+}
+
+#navigation ul li {
+	border: 1px solid transparent;
+	transition: border var(--anim-length) ease-in;
+}
+
+#navigation ul li:hover {
+	border: 1px solid var(--steelblue);
 }
 
 #header-title {
@@ -151,15 +180,26 @@ p {
 	border: 2px solid var(--grey);
 	float: left;
 	border-radius: 15px;
+	transition: border var(--anim-length) ease-in, background-color var(--anim-length) ease-in;
+}
+
+#get-started:hover {
+	background-color: var(--steelblue);
+	border: 2px solid var(--steelblue);
 }
 
 #get-started a {
 	color: var(--grey);
+	transition: color var(--anim-length) ease-in;
+}
+
+#get-started:hover a {
+	color: var(--light-grey);
 }
 
 /***** Konec hlavičky *****/
 
-/***** Hlavní obsah *****/
+/***** Hlavní obsah - obecně *****/
 .content {
 	padding: 0px 20px;
 }
@@ -169,7 +209,7 @@ section {
 	margin: 60px 0px 80px 0px;
 }
 
-/***** Konec hlavní obsahu *****/
+/***** Konec hlavního obsahu - obecně *****/
 
 
 /***** Služby *****/
@@ -199,10 +239,15 @@ section {
 	width: 300px;
 	display: grid;
 	justify-items: center;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	box-shadow: var(--grey) 0px 0px var(--shadow-size);
 	border-radius: var(--border-radius-size);
 	padding: 15px;
 }
+
+.services-card:hover {
+	box-shadow: var(--steelblue) 0px 0px var(--shadow-size);
+}
+
 
 .services-card>div img {
 	border: 1px solid var(--steelblue);
@@ -242,6 +287,7 @@ section {
 
 .about-item img {
 	width: 40%;
+	transition: width var(--anim-length) ease-in;
 }
 
 .about-item img:hover {
@@ -302,9 +348,17 @@ section {
 
 .team-card {
 	grid-row: 2;
-	box-shadow: rgba(0, 0, 0, 0.15) 0px var(--shadow-size) var(--shadow-size) 0px;
+	box-shadow: var(--grey) 0px 0px var(--shadow-size);
 	border-radius: var(--border-radius-size);
 	text-align: center;
+}
+
+.team-card:hover {
+	box-shadow: var(--steelblue) 0px 0px var(--shadow-size);
+}
+
+.team-card:hover h3 {
+	color: var(--steelblue);
 }
 
 .team-card img {
@@ -317,12 +371,12 @@ section {
 }
 
 .team-card h4 {
-	color: var(--dark-grey);
+	color: var(--grey);
 	margin-bottom: 0.5rem;
 }
 
 .team-card p {
-	color: var(--grey);
+	color: var(--lighter-grey);
 	padding-bottom: 1rem;
 	font-size: var(--p-size-smaller);
 }
@@ -344,6 +398,10 @@ section {
 	max-width: 300px;
 	background-color: var(--dark-grey);
 	border-radius: var(--border-radius-size);
+}
+
+.stats-card:hover {
+	background-color: var(--steelblue);
 }
 
 .stats-card i {
@@ -374,10 +432,6 @@ section {
 	background-color: var(--light-grey);
 }
 
-#price>.content {
-	width: 100%;
-}
-
 #price h2 {
 	text-align: center;
 	transform: translateY(55px);
@@ -389,6 +443,14 @@ section {
 	margin: 0 auto;
 	border-spacing: 0 80px;
 	border-collapse: separate;
+}
+
+#price table tbody tr:hover {
+	background-color: var(--white);
+}
+
+#price table tbody tr:hover td {
+	color: var(--steelblue);
 }
 
 #price table th {
@@ -437,6 +499,11 @@ section {
 	background-color: var(--light-grey);
 }
 
+#price button:hover {
+	background-color: var(--steelblue);
+	color: var(--light-grey);
+}
+
 /***** Konec cen *****/
 
 
@@ -450,6 +517,7 @@ section {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
+	column-gap: 80px;
 }
 
 .refs-card {
@@ -464,6 +532,10 @@ section {
 	quotes: '\0022''\0022''\0022''\0022';
 	border-radius: var(--border-radius-size);
 	margin-bottom: 30px;
+}
+
+.refs-card:hover blockquote {
+	background-color: var(--steelblue);
 }
 
 .refs-card blockquote span {
@@ -483,6 +555,10 @@ section {
 	top: 0;
 }
 
+.refs-card:hover blockquote::before {
+	color: var(--light-grey);
+}
+
 .refs-card blockquote::after {
 	position: absolute;
 	content: "";
@@ -493,6 +569,10 @@ section {
 	transform: translateY(20px);
 	z-index: -1;
 	left: 30px
+}
+
+.refs-card:hover blockquote::after {
+	border-top: 20px solid var(--steelblue);
 }
 
 .refs-card figure {
@@ -509,6 +589,11 @@ section {
 .refs-card h3 {
 	color: var(--grey);
 	margin-left: 20px;
+	font-weight: normal;
+}
+
+.refs-card:hover h3 {
+	color: var(--steelblue);
 }
 
 /***** Konec referencí *****/
@@ -547,6 +632,17 @@ section {
 	border: 1px solid var(--steelblue);
 	border-radius: var(--border-radius-size);
 	color: var(--steelblue);
+	margin: 1px;
+	outline-width: 0;
+}
+
+[id^='contact-']:invalid {
+	color: #ff0000;
+}
+
+[id^='contact-']:focus {
+	border: 2px solid #17b317;
+	margin: 0;
 }
 
 #contact-name {
@@ -574,6 +670,10 @@ section {
 	justify-self: center;
 }
 
+#contact-submit:hover {
+	background-color: #17b317;
+}
+
 /***** Konec kontaktů *****/
 
 /***** Rick Roll a Patička *****/
@@ -595,6 +695,12 @@ section {
 
 
 /***** Responzivita *****/
+@media screen and (max-width: 768px) {
+	.content {
+		width: 768px;
+	}
+}
+
 @media screen and (min-width: 1200px) {
 	.content {
 		width: 1200px;
@@ -602,4 +708,5 @@ section {
 		margin-right: auto;
 	}
 }
+
 /***** Konec responzivity *****/
